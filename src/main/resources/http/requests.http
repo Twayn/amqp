@@ -1,7 +1,13 @@
 GET localhost:8080/api/health-check
 ###
 
-POST localhost:8080/api/sendMessage/someMessage
+POST localhost:8080/api/sendRequest
+Content-Type: application/json
+
+{
+  "base": "22",
+  "exponent": 3
+}
 ###
 
-GET localhost:8080/api/getReceivedMessaged
+GET localhost:8080/api/getProcessingResults

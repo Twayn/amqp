@@ -6,8 +6,8 @@ import org.springframework.scheduling.annotation.EnableScheduling
 
 @SpringBootApplication
 @EnableScheduling
-class ComplexProjectApplication
+class AmpqApplication
 
 fun main(args: Array<String>) {
-	runApplication<ComplexProjectApplication>(*args)
+	runApplication<AmpqApplication>(*args)
 }

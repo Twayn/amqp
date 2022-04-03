@@ -1,14 +1,15 @@
 package com.study.amqp.controller
 
-import com.study.amqp.persist.AmqpMessage
+import com.study.amqp.model.PowRequest
 import com.study.amqp.persist.AmqpRepository
+import com.study.amqp.persist.PowResult
 import com.study.amqp.tut1.api.AmqpSender
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -23,17 +24,19 @@ class AmqpController {
     @Autowired
     private lateinit var messageStorage: AmqpRepository
 
-    @PostMapping("/sendMessage/{message}")
-    fun sendMessage(@PathVariable message: String):String {
-        logger.info("Got message: $message")
-        sender.send(message)
-        logger.info("Message sent: $message")
+    @PostMapping("/sendRequest")
+    fun sendMessage(@RequestBody request: PowRequest):String {
+        logger.info("Got request: $request")
 
-        return "Message successfully sent: $message"
+        sender.send(request)
+
+        logger.info("Message sent: $request")
+
+        return "Message successfully sent: $request"
     }
 
-    @GetMapping("/getReceivedMessaged")
-    fun getAllMessages(): Iterable<AmqpMessage> {
+    @GetMapping("/getProcessingResults")
+    fun getAllMessages(): Iterable<PowResult> {
         return messageStorage.findAll()
     }
 }

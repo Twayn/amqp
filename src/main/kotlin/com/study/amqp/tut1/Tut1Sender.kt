@@ -1,5 +1,6 @@
 package com.study.amqp.tut1
 
+import com.study.amqp.model.PowRequest
 import com.study.amqp.tut1.api.AmqpSender
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -17,8 +18,8 @@ class Tut1Sender : AmqpSender {
     private lateinit var queue: Queue
 
     //    @Scheduled(fixedDelay = 1000, initialDelay = 500)
-    override fun send(message: String) {
-        template.convertAndSend(queue.name, message)
-        logger.info("message '$message' sent to queue '${queue.name}'")
+    override fun send(request: PowRequest) {
+        template.convertAndSend(queue.name, request)
+        logger.info("message '$request' sent to queue '${queue.name}'")
     }
 }
