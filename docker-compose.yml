@@ -1,5 +1,12 @@
 version: "3.9"
 services:
+  rabbitmq:
+    container_name: rabbitmq_server
+    image: "rabbitmq:management"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
   client:
     container_name: ampq_app
     build: .
@@ -7,10 +14,6 @@ services:
       - "8080:8080"
     environment:
       spring.rabbitmq.host: rabbitmq
-
-  rabbitmq:
-    container_name: rabbitmq_server
-    image: "rabbitmq:management"
-    ports:
-      - "5672:5672"
-      - "15672:15672"
+      spring.datasource.url: "jdbc:h2:file:/amqp/db"
+    volumes:
+      - "C:/dev/amqp/db:/amqp/db"
