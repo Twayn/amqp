@@ -1,0 +1,7 @@
+GET localhost:8080/api/health-check
+###
+
+POST localhost:8080/api/sendMessage/someMessage
+###
+
+GET localhost:8080/api/getReceivedMessaged

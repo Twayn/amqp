@@ -1,4 +1,7 @@
-#Get Jenkins for JDK 17
+#Some info
+
+Get Jenkins for JDK 17
+
 [First page](https://www.jenkins.io/blog/2022/03/21/java17-preview-availability/)
 
 [Second page](https://www.jenkins.io/doc/administration/requirements/jenkins-on-java-17/)
@@ -18,6 +21,10 @@ docker run --rm -ti -p 9090:8080 -p 50000:50000 -v C:/dev/jenkins_docker_mount:/
 
 Build image
 ```
+./gradlew build 
+```
+
+```
 docker build -t twayn-amqp . 
 ```
 
@@ -26,7 +33,7 @@ Tag image
 docker tag twayn-amqp:latest twayn-amqp:v1.0.0
 ```
 
-Run my app
+Run my app in container
 ```
 docker run --rm -p 8080:8080 twayn-amqp:latest
 ```
@@ -36,10 +43,12 @@ Docker compose
 docker-compose up
 ```
 
+Run app as fat jar
 ```
- java -jar .\build\libs\amqp-0.0.1-SNAPSHOT.jar --spring.profiles.active=hello-world,receiver
+ java -jar .\build\libs\amqp-0.0.1-SNAPSHOT.jar
 ```
 
+Rabbit MQ console
 ```
-java -jar .\build\libs\amqp-0.0.1-SNAPSHOT.jar --spring.profiles.active=hello-world,sender --server.port=8081
+http://localhost:15672/    (guest/guest)
 ```
