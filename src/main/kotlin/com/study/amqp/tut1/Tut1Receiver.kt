@@ -8,7 +8,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitHandler
 import org.springframework.amqp.rabbit.annotation.RabbitListener
 import org.springframework.beans.factory.annotation.Autowired
 
-@RabbitListener(queues = ["messageQueue"])
+@RabbitListener(queues = ["\${ampq.queue.name}"])
 class Tut1Receiver {
     var logger: Logger = LoggerFactory.getLogger(Tut1Receiver::class.java)
 

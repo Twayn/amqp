@@ -40,6 +40,9 @@ docker run --rm -p 8080:8080 twayn-amqp:latest
 
 Docker compose
 ```
+docker-compose build
+```
+```
 docker-compose up
 ```
 
