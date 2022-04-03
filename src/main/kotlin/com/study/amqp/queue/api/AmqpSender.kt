@@ -1,4 +1,4 @@
-package com.study.amqp.tut1.api
+package com.study.amqp.queue.api
 
 import com.study.amqp.model.PowRequest
 

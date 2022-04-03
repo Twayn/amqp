@@ -1,8 +1,8 @@
 package com.study.amqp.config
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.study.amqp.tut1.Tut1Receiver
-import com.study.amqp.tut1.Tut1Sender
+import com.study.amqp.queue.AmqpReceiver
+import com.study.amqp.queue.AmqpSender
 import org.springframework.amqp.core.Queue
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter
 import org.springframework.amqp.support.converter.MessageConverter
@@ -21,13 +21,13 @@ class AmqpConfig {
     }
 
     @Bean
-    fun tut1Receiver(): Tut1Receiver {
-        return Tut1Receiver()
+    fun tut1Receiver(): AmqpReceiver {
+        return AmqpReceiver()
     }
 
     @Bean
-    fun sender(): Tut1Sender {
-        return Tut1Sender()
+    fun sender(): AmqpSender {
+        return AmqpSender()
     }
 
     @Bean

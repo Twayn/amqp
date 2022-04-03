@@ -3,7 +3,7 @@ package com.study.amqp.controller
 import com.study.amqp.model.PowRequest
 import com.study.amqp.persist.AmqpRepository
 import com.study.amqp.persist.PowResult
-import com.study.amqp.tut1.api.AmqpSender
+import com.study.amqp.queue.api.AmqpSender
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired

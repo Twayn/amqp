@@ -1,4 +1,4 @@
-package com.study.amqp.tut1
+package com.study.amqp.queue
 
 import com.study.amqp.model.PowRequest
 import com.study.amqp.persist.AmqpRepository
@@ -10,8 +10,8 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener
 import org.springframework.beans.factory.annotation.Autowired
 
 @RabbitListener(queues = ["\${ampq.queue.name}"])
-class Tut1Receiver {
-    var logger: Logger = LoggerFactory.getLogger(Tut1Receiver::class.java)
+class AmqpReceiver {
+    var logger: Logger = LoggerFactory.getLogger(AmqpReceiver::class.java)
 
     @Autowired
     private lateinit var storage: AmqpRepository
