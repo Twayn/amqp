@@ -19,6 +19,10 @@ docker run --rm -ti -p 9090:8080 -p 50000:50000 -v C:/dev/jenkins_docker_mount:/
 - -p (Publish port - left part is host; right is image)
 - -ti (Connect to network or smt.)
 
+```
+. "C:\Program Files\Java\jdk-11.0.8\bin\java.exe" -jar jenkins.war --httpPort=9090
+```
+
 Build image
 ```
 ./gradlew build 
@@ -43,8 +47,9 @@ Docker compose
 docker-compose build
 ```
 ```
-docker-compose up
+docker-compose up -d
 ```
+- -d in detached mode (do not wait in command prompt until end of process)
 
 Run app as fat jar
 ```
