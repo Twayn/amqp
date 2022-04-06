@@ -20,16 +20,16 @@ pipeline {
             }
         }
 
-        stage('Smoke test') {
+//         stage('Smoke test') {
 //             steps {
 //
 //             }
-        }
+//         }
 
-        stage('Docker stop') {
+//         stage('Docker stop') {
 //             steps {
 //                 bat "docker-compose stop"
 //             }
-        }
+//         }
     }
 }
