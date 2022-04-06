@@ -6,7 +6,6 @@ import com.study.amqp.persist.PowResult
 import com.study.amqp.queue.api.AmqpSender
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -15,14 +14,11 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api")
-class AmqpController {
+class AmqpController(
+    private val sender: AmqpSender,
+    private val messageStorage: AmqpRepository
+) {
     var logger: Logger = LoggerFactory.getLogger(AmqpController::class.java)
-
-    @Autowired
-    private lateinit var sender: AmqpSender
-
-    @Autowired
-    private lateinit var messageStorage: AmqpRepository
 
     @PostMapping("/sendRequest")
     fun sendMessage(@RequestBody request: PowRequest):String {

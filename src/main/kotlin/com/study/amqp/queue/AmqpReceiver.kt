@@ -7,17 +7,15 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.amqp.rabbit.annotation.RabbitHandler
 import org.springframework.amqp.rabbit.annotation.RabbitListener
-import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Service
 
 @RabbitListener(queues = ["\${ampq.queue.name}"])
-class AmqpReceiver {
+@Service
+class AmqpReceiver(
+    private var storage: AmqpRepository,
+    private var powProcessor: PowProcessor
+) {
     var logger: Logger = LoggerFactory.getLogger(AmqpReceiver::class.java)
-
-    @Autowired
-    private lateinit var storage: AmqpRepository
-
-    @Autowired
-    private lateinit var powProcessor: PowProcessor
 
     @RabbitHandler
     fun receive(request: PowRequest) {
