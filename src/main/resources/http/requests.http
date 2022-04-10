@@ -5,8 +5,8 @@ POST localhost:8080/api/sendRequest
 Content-Type: application/json
 
 {
-  "base": "22",
-  "exponent": 3
+  "currencyCode": "EUR",
+  "dateTime": "2022-04-10T07:29:54.058"
 }
 ###
 

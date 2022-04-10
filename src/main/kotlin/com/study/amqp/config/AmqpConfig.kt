@@ -1,5 +1,6 @@
 package com.study.amqp.config
 
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.springframework.amqp.core.Queue
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter
@@ -21,6 +22,7 @@ class AmqpConfig {
     @Bean
     fun messageConverter(): MessageConverter {
         val mapper = jacksonObjectMapper()
+        mapper.registerModule(JavaTimeModule())
         return Jackson2JsonMessageConverter(mapper)
     }
 }

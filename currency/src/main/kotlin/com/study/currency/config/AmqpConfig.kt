@@ -1,5 +1,6 @@
 package com.study.currency.config
 
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.springframework.amqp.core.Queue
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter
@@ -7,6 +8,7 @@ import org.springframework.amqp.support.converter.MessageConverter
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+
 
 @Configuration
 class AmqpConfig {
@@ -21,6 +23,7 @@ class AmqpConfig {
     @Bean
     fun messageConverter(): MessageConverter {
         val mapper = jacksonObjectMapper()
+        mapper.registerModule(JavaTimeModule())
         return Jackson2JsonMessageConverter(mapper)
     }
 }
