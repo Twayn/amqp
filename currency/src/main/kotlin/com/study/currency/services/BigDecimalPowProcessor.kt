@@ -1,7 +1,7 @@
-package com.study.amqp.service
+package com.study.currency.services
 
-import com.study.amqp.model.PowRequest
-import com.study.amqp.persist.PowResult
+import com.study.common.model.PowRequest
+import com.study.currency.persist.PowResult
 import org.springframework.stereotype.Service
 
 @Service

@@ -1,4 +1,4 @@
-package com.study.amqp.persist
+package com.study.currency.persist
 
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository

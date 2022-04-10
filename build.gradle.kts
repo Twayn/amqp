@@ -8,6 +8,10 @@ plugins {
 	kotlin("plugin.jpa") version "1.6.10"
 }
 
+dependencies {
+	implementation(project(":common"))
+}
+
 allprojects{
 	apply {
 		plugin("org.springframework.boot")

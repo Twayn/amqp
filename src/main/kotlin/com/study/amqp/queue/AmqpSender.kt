@@ -1,7 +1,7 @@
 package com.study.amqp.queue
 
-import com.study.amqp.model.PowRequest
 import com.study.amqp.queue.api.AmqpSender
+import com.study.common.model.PowRequest
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.amqp.core.Queue

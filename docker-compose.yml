@@ -17,3 +17,10 @@ services:
       spring.datasource.url: "jdbc:h2:file:/amqp/db"
     volumes:
       - "C:/dev/amqp/db:/amqp/db"
+  currency:
+    container_name: currency_app
+    build: ./currency
+    ports:
+      - "8081:8081"
+    environment:
+      spring.rabbitmq.host: rabbitmq

@@ -1,12 +1,9 @@
 package com.study.amqp.controller
 
-import com.study.amqp.model.PowRequest
-import com.study.amqp.persist.AmqpRepository
-import com.study.amqp.persist.PowResult
 import com.study.amqp.queue.api.AmqpSender
+import com.study.common.model.PowRequest
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -16,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/api")
 class AmqpController(
     private val sender: AmqpSender,
-    private val messageStorage: AmqpRepository
+//    private val messageStorage: AmqpRepository
 ) {
     var logger: Logger = LoggerFactory.getLogger(AmqpController::class.java)
 
@@ -31,8 +28,8 @@ class AmqpController(
         return "Message successfully sent: $request"
     }
 
-    @GetMapping("/getProcessingResults")
-    fun getAllMessages(): Iterable<PowResult> {
-        return messageStorage.findAll()
-    }
+//    @GetMapping("/getProcessingResults")
+//    fun getAllMessages(): Iterable<PowResult> {
+//        return messageStorage.findAll()
+//    }
 }

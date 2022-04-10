@@ -1,8 +1,8 @@
-package com.study.amqp.queue
+package com.study.currency.qlistener
 
-import com.study.amqp.model.PowRequest
-import com.study.amqp.persist.AmqpRepository
-import com.study.amqp.service.PowProcessor
+import com.study.common.model.PowRequest
+import com.study.currency.persist.AmqpRepository
+import com.study.currency.services.PowProcessor
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.amqp.rabbit.annotation.RabbitHandler

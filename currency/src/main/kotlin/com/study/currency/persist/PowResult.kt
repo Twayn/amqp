@@ -1,4 +1,4 @@
-package com.study.amqp.persist
+package com.study.currency.persist
 
 import java.math.BigDecimal
 import javax.persistence.Column

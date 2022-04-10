@@ -1,4 +1,4 @@
-package com.study.amqp.model
+package com.study.common.model
 
 import java.math.BigDecimal
 
